@@ -34,13 +34,13 @@ function handleContactForm(e) {
   var phone = document.getElementById('admin-phone').value;
   var isLandline = document.getElementById('is-landline').checked;
 
-  // Validation: if it is a mobile number, it should be at least 10 digits
+  
   if (!isLandline && phone.length < 10) {
     alert('Mobile numbers must not be less than 10 digits.');
     return false;
   }
 
-  // Formatting: add 044 to landline exactly as requested
+  
   if (isLandline && !phone.startsWith('044')) {
     phone = '044 ' + phone;
   }
@@ -53,3 +53,34 @@ function handleContactForm(e) {
   window.location.href = 'mailto:info@gpublishingservice.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   return false;
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.getElementById('project-carousel');
+    const dotsContainer = document.getElementById('carousel-dots');
+    const slides = carousel.querySelectorAll('.group');
+
+   
+    slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    
+    carousel.addEventListener('scroll', () => {
+        const scrollLeft = carousel.scrollLeft;
+        const slideWidth = carousel.clientWidth;
+        const activeIndex = Math.round(scrollLeft / slideWidth);
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+        });
+    });
+});
