@@ -143,7 +143,7 @@ header {
 }
 
 .logo-text {
-    font-family: "Brush Script MT", cursive;
+    font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
     font-size: 2.1rem;
     /* font-weight: 600; */
     white-space: nowrap;
@@ -394,7 +394,7 @@ header {
     transform: scale(0.92);
     animation: imageIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     animation-delay: 0.3s;
-    border: 1px dashed purple;
+    /* border: 1px dashed purple; */
     border-radius: 10px;
     /* box-shadow: 20px 15px 10px purple; */
 }
@@ -1085,10 +1085,17 @@ header {
     .slideItem .content{
         margin-bottom: 20px;
     }
+    .slideItem .content .name{
+        font-size: 20px;
+    }
+    .slideItem .content .des{
+        font-size: 12px;
+    }
 }
 @media (max-width:415px){
     .slideItem .content{
         margin-bottom: 20px;
+        font-size: 10px;
     }
 }
 .content>.elem>span:hover {
@@ -1117,9 +1124,10 @@ header {
 
 /* ============================================================== */
 .button {
+    width: 100%;
     position: absolute;
-    left: 40%;
-    bottom: 20px;
+    left: 75%;
+    bottom: 10px;
     z-index: 10;
 }
 
@@ -1132,7 +1140,7 @@ header {
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
     padding: 6px 16px;
-    margin-right: 8px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -1142,14 +1150,37 @@ header {
     box-shadow: 0 10px 40px #57eeff;
 }
 
-
-
-.button button:hover {
-    color: rgb(88, 233, 243);
-    border: 1px solid rgb(8, 127, 163);
-    box-shadow: 0px 10px 40px rgb(87, 238, 255);
+@media (max-width:768px) {
+    .button {
+ 
+    left: 65%;
+    bottom: 10px;
+    
 }
-
+    .button button {
+    font-size: 13px;
+    
+    padding: 6px 16px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+}
+@media (min-width:769px) {
+    .button {
+ width: 100%;
+    position: absolute;
+    left: 65%;
+    bottom: 10px;
+    z-index: 10;
+    
+}
+    .button button {
+    font-size: 13px;
+    padding: 6px 16px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+}
 
 /* ================================================================ */
 
